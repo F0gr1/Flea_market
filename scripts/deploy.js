@@ -2,7 +2,7 @@
 const hre = require("hardhat");
 
 async function main() {
-  const counterFactory = await hre.ethers.getContractFactory("Counter");
+  const counterFactory = await hre.ethers.getContractFactory("Account");
   const counter = await counterFactory.deploy();
 
   await counter.deployed();
