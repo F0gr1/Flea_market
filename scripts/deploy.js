@@ -1,17 +1,15 @@
-// /packages/contracts/scripts/deploy.js
-const hre = require("hardhat");
+const { ethers } = require("hardhat");
 
 async function main() {
-  const counterFactory = await hre.ethers.getContractFactory("Counter");
-  const counter = await counterFactory.deploy();
+  const Nft = await ethers.getContractFactory("Nft");
+  const nft = await Nft.deploy("name", "symbol");
 
-  await counter.deployed();
+  await nft.deployed();
 
-  console.log("deployed to:", counter.address);
+  console.log("Nft deployed to:", nft.address);
 }
-
 main()
-  .then(() => process.exit(0))
+	  .then(() => process.exit(0))
   .catch((error) => {
     console.error(error);
     process.exit(1);
